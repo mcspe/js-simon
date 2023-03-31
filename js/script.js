@@ -2,7 +2,7 @@ const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min
 const hideSeq = () => outputBox.hidden = true;
 const getUserSeq = () => {
   for (let i = 0; i < 5; i++) {
-    const userInput = parseInt(prompt(`Inserisci il valore mostrato numero ${i+1}`));
+    const userInput = 0;//parseInt(prompt(`Inserisci il valore mostrato numero ${i+1}`));
     userSeq.push(userInput);
   }
   checkUserSeq();
@@ -50,3 +50,20 @@ function checkUserSeq() {
 
 
 console.log('generatedSeq', generatedSeq, 'userSeq', userSeq);
+
+
+const timerDiv = document.querySelector('.timer');
+const timerCenter = document.querySelector('.center');
+let timerMovement = 2.7;
+let moved = -90;
+
+const timer = setInterval(() => {
+  moved -= timerMovement;
+  timerCenter.style.transform = `rotate(${moved}deg)`;
+}, 50);
+
+setTimeout(() => {
+  clearInterval(timer);
+}, 5000);
+
+console.log(timerCenter);
